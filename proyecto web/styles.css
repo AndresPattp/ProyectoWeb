@@ -1,0 +1,271 @@
+/* Reseteo y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #4b5563;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #2563eb;
+}
+
+.cart-toggle {
+  position: relative;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1920/600');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Categorías Section */
+.categories-section {
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+.categories-carousel {
+  display: flex; /* Cambiar a flex para disposición horizontal */
+  overflow-x: auto; /* Permitir desplazamiento horizontal */
+  padding-bottom: 1rem;
+}
+
+.categories-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.category-card {
+  transition: transform 0.3s ease, flex-grow 0.3s ease; /* Añadir transición para el crecimiento */
+  flex: 0 0 auto; /* Evitar que las tarjetas se estiren */
+}
+
+.category-card.selected {
+  transform: scale(0.5); /* Aumentar el tamaño al seleccionarla */
+  flex-grow: 1; /* Permitir que la tarjeta seleccionada crezca */
+}
+
+.category-card:hover {
+  transform: translateY(-10px);
+}
+
+.category-card img {
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Games Container */
+.games-container {
+  display: flex; /* Disposición horizontal para los juegos */
+  overflow-x: auto; /* Permitir desplazamiento horizontal */
+}
+
+
+.game-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Cart Panel */
+.cart-panel {
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.cart-panel:not(.hidden) {
+  transform: translateX(0);
+}
+
+.cart-items {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.cart-item {
+  transition: background-color 0.2s;
+}
+
+.cart-item:hover {
+  background-color: #f8f9fa;
+}
+
+/* Footer */
+.footer {
+  background-color: #1f2937;
+  color: white;
+  padding: 4rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-section a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: white;
+}
+
+/* Botones */
+.add-to-cart {
+  transition: background-color 0.3s ease;
+}
+
+.remove-from-cart {
+  transition: color 0.3s ease;
+}
+
+.remove-from-cart:hover {
+  color: #dc2626;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 {
+      font-size: 2.5rem;
+  }
+
+  .nav-menu {
+      display: none;
+  }
+
+  .cart-panel {
+      width: 100%;
+  }
+
+  .category-card {
+      width: 260px;
+      height: 320px;
+  }
+
+  .footer-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+  }
+}
+
+/* Utilidades */
+.hidden {
+  display: none;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
